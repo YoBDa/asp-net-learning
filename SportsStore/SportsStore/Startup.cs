@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 using SportsStore.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
+
+
 
 namespace SportsStore
 {
@@ -41,6 +44,7 @@ namespace SportsStore
                 routes.MapRoute(name: "default",
                     template: "{controller=Product}/{action=List}/{id?}");
             });
+            SeedData.EnsurePopulated(app);
         }
     }
 }
